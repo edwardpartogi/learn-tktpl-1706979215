@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             hello_text.setTextColor(Color.BLACK);
         }
-
     }
 
     public static boolean checkBlackColor(int currentColor){
