@@ -10,6 +10,11 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    static {
+        System.loadLibrary("native-lib");
+    }
+    public native boolean checkColorInt(int currentColorInt, int standardColorInt);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeColorHelloWorld(View v) {
         TextView hello_text = findViewById(R.id.textView);
 
-        if (checkBlackColor(hello_text.getCurrentTextColor())) {
+        if ( checkColorInt(hello_text.getCurrentTextColor(), Color.BLACK) ) {
             hello_text.setTextColor(Color.RED);
         } else {
             hello_text.setTextColor(Color.BLACK);
